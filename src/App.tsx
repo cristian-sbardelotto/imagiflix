@@ -12,6 +12,6 @@ const App = () => {
       <Hero />
     </div>
   );
-}
+};
 
 export default App;
