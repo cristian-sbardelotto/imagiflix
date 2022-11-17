@@ -15,7 +15,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className='navbar absolute top-0 left-0 p-8 grid grid-cols-2 w-full'>
+    <nav className='navbar absolute top-0 left-0 p-8 grid grid-cols-2 w-full z-20'>
       <div className='justify-self-start flex items-center gap-9'>
         <h1 className='hidden'>ImagiFlix</h1>
         <img src={logo} alt='Imagiflix Logo' />
