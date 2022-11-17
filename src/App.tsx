@@ -1,7 +1,11 @@
 import React from 'react';
 
+
 import Hero from './components/Hero/index';
 import NavBar from './components/Navbar/index';
+
+import '~slick-carousel/slick/slick.css';
+import '~slick-carousel/slick/slick-theme.css';
 
 import './tailwind.css';
 
