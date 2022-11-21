@@ -15,6 +15,9 @@ const App = () => {
       <NavBar />
       <Hero />
       <Carousel />
+      <Carousel />
+      <Carousel />
+      <Carousel />
     </div>
   );
 };
