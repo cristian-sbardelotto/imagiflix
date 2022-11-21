@@ -1,5 +1,6 @@
 import React from 'react';
 import Slick from 'react-slick';
+import Poster from '../Poster/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import mockData, { Movie } from '../../data/mock';
@@ -7,12 +8,6 @@ import {
   faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-
-const Poster = ({ cover, title, score }: Movie, index: number) => (
-  <article key={index}>
-    <img src={cover} alt={title} className='h-72' />
-  </article>
-);
 
 interface CarouselData {
   title?: string;
@@ -28,7 +23,13 @@ const Carousel = ({
     right,
   }
 
-  const SlickArrow = ({direction, onClick,}: {direction: Direction, onClick?: () => void;}) => {
+  const SlickArrow = ({
+    direction,
+    onClick,
+  }: {
+    direction: Direction;
+    onClick?: () => void;
+  }) => {
     return (
       <button
         type='button'
