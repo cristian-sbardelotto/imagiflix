@@ -9,12 +9,16 @@ const Poster = ({ cover, title, score }: Movie, index: number) => (
   </article>
 );
 
+
 interface CarouselData {
   title?: string;
   data?: Movie[];
 }
 
-const Carousel = ({ title = 'Filmes em destaque', data = mockData }: CarouselData) => {
+const Carousel = ({
+  title = 'Filmes em destaque',
+  data = mockData,
+}: CarouselData) => {
   const options = {
     infinite: true,
     slidesToScroll: 1,
