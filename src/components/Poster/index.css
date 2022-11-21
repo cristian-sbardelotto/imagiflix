@@ -1,0 +1,7 @@
+.poster {
+  opacity: 0;
+  transition: 1s opacity ease-in;
+}
+.poster:hover {
+  opacity: 1;
+}

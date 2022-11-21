@@ -3,6 +3,8 @@ import Slick from 'react-slick';
 import Poster from '../Poster/index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import './index.css';
+
 import mockData, { Movie } from '../../data/mock';
 import {
   faChevronLeft,
@@ -55,7 +57,7 @@ const Carousel = ({
   };
 
   return (
-    <section>
+    <section className='carousel'>
       <h2 className='relative text-xl ml-8 mb-4'>{title}</h2>
       <Slick className='relative' {...options}>
         {data.map((movie, index) => Poster(movie, index))}
