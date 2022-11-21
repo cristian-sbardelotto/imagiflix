@@ -10,7 +10,7 @@ export interface Movie {
 
 const mockData: Movie[] = [
   {
-    title: 'Avengers Endgame',
+    title: 'Avengers',
     cover: cover1
   },
 
@@ -24,7 +24,7 @@ const mockData: Movie[] = [
     cover: cover3
   },
   {
-    title: 'Avengers Endgame',
+    title: 'Avengers',
     cover: cover1
   },
 
@@ -38,7 +38,7 @@ const mockData: Movie[] = [
     cover: cover3
   },
   {
-    title: 'Avengers Endgame',
+    title: 'Avengers',
     cover: cover1
   },
 
@@ -52,7 +52,7 @@ const mockData: Movie[] = [
     cover: cover3
   },
   {
-    title: 'Avengers Endgame',
+    title: 'Avengers',
     cover: cover1
   },
 
