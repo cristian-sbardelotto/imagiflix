@@ -1,5 +1,6 @@
 {
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "singleAttributePerLine": false
+  "singleAttributePerLine": false,
+  "arrowParens": "avoid"
 }
