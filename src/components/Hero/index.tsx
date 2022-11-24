@@ -1,5 +1,5 @@
 import React from 'react';
-import CONST from '../../data/constants';
+import { IMAGEURL } from '../../data/constants';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +7,6 @@ import Score from '../Score/index';
 import placeholder from '../../assets/hero.jpg';
 
 const Hero = ({ backdrop_path = null, title = 'Avengers Endgame', vote_average = 10 }) => {
-  const { IMAGEURL } = CONST;
 
   return (
     <header className='box-border relative -mb-32 h-screen'>
