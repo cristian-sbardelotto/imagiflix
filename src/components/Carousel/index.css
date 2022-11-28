@@ -1,4 +1,3 @@
 .carousel .slick-slider .slick-list {
-  overflow: unset;
-  overflow-x: visible;
+  overflow-x: hidden;
 }
