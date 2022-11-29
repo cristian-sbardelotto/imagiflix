@@ -13,7 +13,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './tailwind.css';
 
 const App = () => {
-  const [movies, setMovies] = useState<object[]>([]);
+  const [movies, setMovies] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const fetchData = async () => {
@@ -29,18 +29,17 @@ const App = () => {
     }
   };
 
-
   useEffect(() => {
     fetchData();
   }, []);
 
-  useEffect(() => movies && console.log(movies), [movies]);
+  const [ featured, ...movieList ] = movies;
 
   return (
     <div className='m-auto antialiased font-sans bg-black text-white'>
       <NavBar />
-      {loading ? <Loading /> : <Hero {...movies[0] } />}
-      <Carousel />
+      {loading ? <Loading /> : <Hero {...featured } />}
+      <Carousel data={movieList} />
       <Carousel />
       <Carousel />
     </div>
