@@ -1,0 +1,14 @@
+footer div a {
+  width: fit-content;
+
+  transition: .2s color ease;
+}
+
+footer div a:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+footer svg:hover {
+  color: #fff;
+  cursor: pointer;
+}
