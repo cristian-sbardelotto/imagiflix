@@ -35,7 +35,7 @@ const Carousel = ({
     return (
       <button
         type='button'
-        className={`absolute w-16 h-full z-10 top-0 bg-black bg-opacity-50 ${
+        className={`absolute w-16 h-72 z-10 top-4 bg-black pt- bg-opacity-50  ${
           direction ? 'right-0' : 'left-0'
         }`}
         onClick={onClick}
