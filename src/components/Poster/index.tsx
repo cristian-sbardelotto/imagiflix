@@ -10,16 +10,16 @@ import Score from '../Score/index';
 
 import './index.css';
 
-const Poster = ({ cover, poster_path, title, vote_average }: Movie, index: number) => (
+const Poster = ({ cover, poster_path, title, name, vote_average }: Movie, index: number) => (
   <article
     className='relative transition-all duration-500 ease-in-out transform hover:scale-110 hover:z-10'
     key={index}
   >
     <img src={poster_path ? `${IMAGEURL}/w200/${poster_path}` : cover} alt={title} className='h-72' />
-    <div className='poster absolute inset-0 h-full grid place-items-center px-4 w-full bg-black bg-opacity-75 transition-all duration-500 ease-in-out cursor-pointer'>
-      <FontAwesomeIcon icon={faPlayCircle} size='5x' />
-      <h2 className='text-2xl'>{title}</h2>
+    <div className='poster absolute inset-0 h-full grid place-items-center px-4 w-full text-center leading-5 bg-black bg-opacity-75 transition-all duration-500 ease-in-out cursor-pointer'>
+      <h2 className='text-2xl'>{title ? title : name}</h2>
       <Score value={vote_average} />
+      <FontAwesomeIcon icon={faPlayCircle} size='5x' />
     </div>
   </article>
 );

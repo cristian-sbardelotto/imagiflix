@@ -17,7 +17,7 @@ const Score = ({ value = 3 }: { value?: string | number }) => {
     <span
       className={`score text-center rounded-full px-3 py-2 mx-2 bg-black bg-opacity-75 border-4 ${getBorderColor()}`}
     >
-      {value}
+      {Math.round(Number(value))}
     </span>
   );
 };
