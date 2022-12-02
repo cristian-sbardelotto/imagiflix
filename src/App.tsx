@@ -7,6 +7,7 @@ import Hero from './components/Hero/index';
 import Loading from './components/Loading/index';
 import NavBar from './components/Navbar/index';
 import Carousel from './components/Carousel';
+import Footer from './components/Footer';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -59,6 +60,7 @@ const App = () => {
       <Carousel title='Filmes populares' data={getMovieList()} />
       <Carousel title='Séries populares' data={series} />
       <Carousel title='Placeholder' />
+      <Footer />
     </div>
   );
 };
