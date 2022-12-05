@@ -54,12 +54,11 @@ const App = () => {
   };
 
   return (
-    <div className='m-auto antialiased font-sans bg-black text-white bg-red'>
+    <div className='m-auto antialiased font-sans bg-stone-900 text-white bg-red'>
       <NavBar />
       {loading ? <Loading /> : <Hero {...getFeaturedMovie()} />}
       <Carousel title='Filmes populares' data={getMovieList()} />
       <Carousel title='Séries populares' data={series} />
-      <Carousel title='Placeholder' />
       <Footer />
     </div>
   );
