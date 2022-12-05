@@ -27,6 +27,7 @@ export interface Title {
 const App = () => {
   const [movies, setMovies] = useState<any[]>([]);
   const [series, setSeries] = useState();
+  const [upcoming, setUpcoming] = useState<any[]>([]);
   const [title, setTitle] = useState();
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -43,6 +44,12 @@ const App = () => {
       );
       const seriesData = await series.json();
       setSeries(seriesData.results);
+
+      const upcoming = await fetch(
+        `${URL}/movie/upcoming${APISTRING}&sort_by=popularity.desc`
+      );
+      const upcomingData = await upcoming.json();
+      setUpcoming(upcomingData.results);
 
       setLoading(false);
     } catch {
@@ -79,8 +86,9 @@ const App = () => {
     <div className='m-auto antialiased font-sans bg-stone-900 text-white bg-red'>
       <NavBar />
       {loading ? <Loading /> : <Hero {...getFeaturedMovie()}/>}
-      <Carousel title='Filmes populares' data={getMovieList()} getTitle={getTitle} />
-      <Carousel title='Séries populares' data={series} getTitle={getTitle} />
+      <Carousel title='Filmes populares' data={getMovieList()}  />
+      <Carousel title='Séries populares' data={series} />
+      <Carousel title='Em breve' data={upcoming} />
       <Footer />
     </div>
   );
