@@ -59,7 +59,6 @@ const App = () => {
       {loading ? <Loading /> : <Hero {...getFeaturedMovie()} />}
       <Carousel title='Filmes populares' data={getMovieList()} />
       <Carousel title='Séries populares' data={series} />
-      <Carousel title='Placeholder' />
       <Footer />
     </div>
   );

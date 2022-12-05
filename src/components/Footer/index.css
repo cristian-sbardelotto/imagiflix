@@ -9,6 +9,6 @@ footer div a:hover {
 }
 
 footer svg:hover {
-  color: #fff;
+  color: hsl(0, 0%, 100%);
   cursor: pointer;
 }

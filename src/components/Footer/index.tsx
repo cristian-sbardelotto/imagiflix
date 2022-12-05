@@ -14,7 +14,7 @@ const Footer = () => {
   const date = new Date();
 
   return (
-    <footer className='px-12 mt-36 pb-4 text-sm text-stone-500'>
+    <footer className='px-12 mt-12 pb-8 text-sm text-stone-500'>
       <FontAwesomeIcon className='mr-4' icon={faFacebookSquare} size='2x' />
       <FontAwesomeIcon className='mr-4' icon={faInstagram} size='2x'/>
       <FontAwesomeIcon className='mr-4' icon={faTwitter} size='2x'/>
