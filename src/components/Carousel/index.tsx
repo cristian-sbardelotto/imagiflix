@@ -14,11 +14,13 @@ import {
 interface CarouselData {
   title?: string;
   data?: Movie[];
+  getTitle?: () => void;
 }
 
 const Carousel = ({
   title = 'Filmes em destaque',
   data = mockData,
+  getTitle
 }: CarouselData) => {
   enum Direction {
     left,

@@ -10,7 +10,7 @@ import Score from '../Score/index';
 
 import './index.css';
 
-const Poster = ({ cover, poster_path, title, name, vote_average }: Movie, index: number) => (
+const Poster = ({ cover, poster_path, title, name, vote_average, movie_id, tv_id }: Movie, index: number) => (
   <article
     className='relative transition-all duration-500 ease-in-out transform hover:scale-110 hover:z-10'
     key={index}
