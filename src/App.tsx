@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from 'react';
 
-import { URL, APISTRING, APIKEY } from './data/constants';
+import emitter from './utils/eventEmmiter';
+
+import { URL, APISTRING, APIKEY, EVENTS } from './data/constants';
 
 import Hero from './components/Hero/index';
 import Loading from './components/Loading/index';
@@ -55,10 +57,6 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const getFeaturedMovie = () => movies && movies[0];
 
   const getMovieList = () => {
@@ -79,6 +77,14 @@ const App = () => {
       setTitle(undefined);
     };
   };
+
+  useEffect(() => {
+    fetchData();
+
+    emitter.addListener(EVENTS.PosterClick, getTitle);
+  }, []);
+
+  useEffect(() => title && console.log(title), [title]);
 
   return (
     <div className='m-auto antialiased font-sans bg-stone-900 text-white bg-red'>
