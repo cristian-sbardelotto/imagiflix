@@ -31,23 +31,21 @@ const App = () => {
   const [title, setTitle] = useState();
   const [loading, setLoading] = useState<boolean>(true);
 
+  const moviesUrl =  `${URL}/discover/movie${APISTRING}&sort_by=popularity.desc`;
+  const seriesUrl = `${URL}/discover/tv${APISTRING}&sort_by=popularity.desc`;
+  const upcomingUrl = `${URL}/movie/upcoming${APISTRING}&sort_by=popularity.desc`;
+
   const fetchData = async () => {
     try {
-      const movies = await fetch(
-        `${URL}/discover/movie${APISTRING}&sort_by=popularity.desc`
-      );
+      const movies = await fetch(moviesUrl);
       const moviesData = await movies.json();
       setMovies(moviesData.results);
 
-      const series = await fetch(
-        `${URL}/discover/tv${APISTRING}&sort_by=popularity.desc`
-      );
+      const series = await fetch(seriesUrl);
       const seriesData = await series.json();
       setSeries(seriesData.results);
 
-      const upcoming = await fetch(
-        `${URL}/movie/upcoming${APISTRING}&sort_by=popularity.desc`
-      );
+      const upcoming = await fetch(upcomingUrl);
       const upcomingData = await upcoming.json();
       setUpcoming(upcomingData.results);
 
@@ -85,10 +83,14 @@ const App = () => {
   return (
     <div className='m-auto antialiased font-sans bg-stone-900 text-white bg-red'>
       <NavBar />
-      {loading ? <Loading /> : <Hero {...getFeaturedMovie()}/>}
-      <Carousel title='Filmes populares' data={getMovieList()}  />
-      <Carousel title='Séries populares' data={series} />
-      <Carousel title='Em breve' data={upcoming} />
+      {loading ? <Loading /> : (
+        <>
+          <Hero {...getFeaturedMovie()}/>
+          <Carousel title='Filmes populares' data={getMovieList()}  />
+          <Carousel title='Séries populares' data={series} />
+          <Carousel title='Em breve' data={upcoming} />
+        </>
+      )}
       <Footer />
     </div>
   );

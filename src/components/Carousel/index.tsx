@@ -52,7 +52,7 @@ const Carousel = ({
 
   const options = {
     infinite: true,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     variableWidth: true,
     prevArrow: <SlickArrow direction={Direction.left} />,
     nextArrow: <SlickArrow direction={Direction.right} />,
