@@ -8,65 +8,71 @@ export interface Movie {
   cover?: string;
   poster_path?: string;
   vote_average?: number | string;
+  id?: number | string;
+}
+
+export enum TitleType {
+  Movie = 'movie',
+  Serie = 'tv'
+}
+
+export interface Title {
+  type: TitleType;
+  id: number | string;
 }
 
 const mockData: Movie[] = [
   {
-    title: 'Avengers',
-    cover: cover1
-  },
-
-  {
     title: 'Missão Impossível',
-    cover: cover2
+    cover: cover2,
   },
 
   {
     title: 'Megatubarão',
-    cover: cover3
+    cover: cover3,
   },
   {
     title: 'Avengers',
-    cover: cover1
+    cover: cover1,
   },
 
   {
     title: 'Missão Impossível',
-    cover: cover2
+    cover: cover2,
   },
 
   {
     title: 'Megatubarão',
-    cover: cover3
+    cover: cover3,
   },
   {
     title: 'Avengers',
-    cover: cover1
+    cover: cover1,
   },
 
   {
     title: 'Missão Impossível',
-    cover: cover2
+    cover: cover2,
   },
 
   {
     title: 'Megatubarão',
-    cover: cover3
+    cover: cover3,
   },
   {
     title: 'Avengers',
-    cover: cover1
+    cover: cover1,
   },
 
   {
     title: 'Missão Impossível',
-    cover: cover2
+    cover: cover2,
   },
 
   {
     title: 'Megatubarão',
-    cover: cover3
-  }
+    cover: cover3,
+  },
 ];
 
 export default mockData;

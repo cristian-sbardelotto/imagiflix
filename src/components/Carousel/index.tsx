@@ -14,11 +14,13 @@ import {
 interface CarouselData {
   title?: string;
   data?: Movie[];
+  getTitle?: () => void;
 }
 
 const Carousel = ({
   title = 'Filmes em destaque',
   data = mockData,
+  getTitle
 }: CarouselData) => {
   enum Direction {
     left,
@@ -50,7 +52,7 @@ const Carousel = ({
 
   const options = {
     infinite: true,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     variableWidth: true,
     prevArrow: <SlickArrow direction={Direction.left} />,
     nextArrow: <SlickArrow direction={Direction.right} />,
