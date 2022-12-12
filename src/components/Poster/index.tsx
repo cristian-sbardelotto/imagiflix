@@ -3,7 +3,7 @@ import emitter from '../../utils/eventEmmiter';
 
 import { Movie } from '../../data/mock';
 
-import { Title, TitleType } from '../../App';
+import { Title, TitleType } from '../../data/mock';
 
 import { IMAGEURL, EVENTS } from '../../data/constants';
 

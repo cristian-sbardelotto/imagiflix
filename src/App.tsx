@@ -1,9 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from 'react';
 
+import axios from 'axios';
+
 import emitter from './utils/eventEmmiter';
 
-import { URL, APISTRING, APIKEY, EVENTS } from './data/constants';
+import { URL, APISTRING, EVENTS } from './data/constants';
+
+import { Title } from './data/mock';
 
 import Hero from './components/Hero/index';
 import Loading from './components/Loading/index';
@@ -16,46 +20,16 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import './tailwind.css';
 
-export enum TitleType {
-  Movie = 'movie',
-  Serie = 'tv'
-}
-
-export interface Title {
-  type: TitleType;
-  id: number | string;
-}
-
 const App = () => {
   const [movies, setMovies] = useState<any[]>([]);
-  const [series, setSeries] = useState();
+  const [series, setSeries] = useState<any[]>([]);
   const [upcoming, setUpcoming] = useState<any[]>([]);
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const moviesUrl =  `${URL}/discover/movie${APISTRING}&sort_by=popularity.desc`;
   const seriesUrl = `${URL}/discover/tv${APISTRING}&sort_by=popularity.desc`;
   const upcomingUrl = `${URL}/movie/upcoming${APISTRING}&sort_by=popularity.desc`;
-
-  const fetchData = async () => {
-    try {
-      const movies = await fetch(moviesUrl);
-      const moviesData = await movies.json();
-      setMovies(moviesData.results);
-
-      const series = await fetch(seriesUrl);
-      const seriesData = await series.json();
-      setSeries(seriesData.results);
-
-      const upcoming = await fetch(upcomingUrl);
-      const upcomingData = await upcoming.json();
-      setUpcoming(upcomingData.results);
-
-      setLoading(false);
-    } catch {
-      setMovies([]);
-    }
-  };
 
   const getFeaturedMovie = () => movies && movies[0];
 
@@ -68,23 +42,37 @@ const App = () => {
   };
 
   const getTitle = async ({type, id}: Title) => {
-    try {
-      const title = await fetch(`${URL}/${type}/${id}${APISTRING}`);
-      const titleData = await title.json();
-      setTitle(titleData.results);
-
-    } catch {
-      setTitle(undefined);
-    };
+    const title = await axios.get(`${URL}/${type}/${id}${APISTRING}`);
+    setTitle(title.data);
   };
 
   useEffect(() => {
-    fetchData();
-
     emitter.addListener(EVENTS.PosterClick, getTitle);
-  }, []);
 
-  useEffect(() => title && console.log(title), [title]);
+    const fetchData = async () => {
+      try {
+        const moviesData = await axios.get(moviesUrl);
+        setMovies(moviesData.data.results);
+
+        const seriesData = await axios.get(seriesUrl);
+        setSeries(seriesData.data.results);
+
+        const upcomingData = await axios.get(upcomingUrl);
+        setUpcoming(upcomingData.data.results);
+
+        setLoading(false);
+      } catch {
+        setMovies([]);
+        setSeries([]);
+        setUpcoming([]);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [moviesUrl, seriesUrl, upcomingUrl]);
+
+  useEffect(() => console.log(title), [title]);
 
   return (
     <div className='m-auto antialiased font-sans bg-stone-900 text-white bg-red'>

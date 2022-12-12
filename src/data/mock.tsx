@@ -11,12 +11,17 @@ export interface Movie {
   id?: number | string;
 }
 
-const mockData: Movie[] = [
-  {
-    title: 'Avengers',
-    cover: cover1,
-  },
+export enum TitleType {
+  Movie = 'movie',
+  Serie = 'tv'
+}
 
+export interface Title {
+  type: TitleType;
+  id: number | string;
+}
+
+const mockData: Movie[] = [
   {
     title: 'Missão Impossível',
     cover: cover2,
