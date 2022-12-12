@@ -13,21 +13,14 @@ import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import Score from '../Score/index';
 
 import './index.css';
-import Modal from '../Modal/index';
 
 const Poster = ({ cover, poster_path, title, name, vote_average, id }: Movie, index: number) => {
 
   const handleClick = () => {
-    showModal();
     const type = title ? TitleType.Movie : TitleType.Serie;
 
     emitter.emit(EVENTS.PosterClick, { type, id});
   };
-
-  const showModal = () => {
-    return <Modal />;
-  };
-
 
   return (
     <article
@@ -35,7 +28,7 @@ const Poster = ({ cover, poster_path, title, name, vote_average, id }: Movie, in
       key={index}
       onClick={handleClick}
     >
-      <img src={poster_path ? `${IMAGEURL}/w200/${poster_path}` : cover} alt={title} className='h-72' />
+      <img src={poster_path ? `${IMAGEURL}/w200/${poster_path}` : cover} alt={title ? title : name} className='h-72' />
       <div className='poster absolute inset-0 h-full grid place-items-center px-4 w-full text-center leading-5 bg-black bg-opacity-75 transition-all duration-500 ease-in-out cursor-pointer'>
         <h2 className='text-2xl'>{title ? title : name}</h2>
         <Score value={vote_average} />

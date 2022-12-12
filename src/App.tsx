@@ -43,8 +43,10 @@ const App = () => {
   };
 
   const getTitle = async ({ type, id }: Title) => {
+    setLoading(true);
     const title = await axios.get(`${URL}/${type}/${id}${APISTRING}`);
     setTitle(title.data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -89,7 +91,7 @@ const App = () => {
         </>
       )}
       <Footer />
-      {!loading && title && <Modal />}
+      {!loading && title && <Modal {...title} />}
     </div>
   );
 };
