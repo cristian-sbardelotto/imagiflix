@@ -49,8 +49,13 @@ const App = () => {
     setLoading(false);
   };
 
+  const titleFalse = () => {
+    setTitle(undefined);
+  };
+
   useEffect(() => {
     emitter.addListener(EVENTS.PosterClick, getTitle);
+    emitter.addListener(EVENTS.ModalClose, titleFalse);
 
     const fetchData = async () => {
       try {
@@ -75,7 +80,7 @@ const App = () => {
     fetchData();
   }, [moviesUrl, seriesUrl, upcomingUrl]);
 
-  useEffect(() => console.log(title), [title]);
+  useEffect(() => title && console.log(title), [title]);
 
   return (
     <div className='m-auto antialiased font-sans bg-stone-900 text-white bg-red'>
