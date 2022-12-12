@@ -13,14 +13,21 @@ import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import Score from '../Score/index';
 
 import './index.css';
+import Modal from '../Modal/index';
 
 const Poster = ({ cover, poster_path, title, name, vote_average, id }: Movie, index: number) => {
 
   const handleClick = () => {
+    showModal();
     const type = title ? TitleType.Movie : TitleType.Serie;
 
     emitter.emit(EVENTS.PosterClick, { type, id});
   };
+
+  const showModal = () => {
+    return <Modal />;
+  };
+
 
   return (
     <article
