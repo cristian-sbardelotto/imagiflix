@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext} from 'react';
 
 import Score from '../Score/index';
 
 import { EVENTS, IMAGEURL } from '../../data/constants';
 
-import emitter from '../../utils/eventEmmiter';
+import { EventContext } from '../../context/eventContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
@@ -22,9 +22,10 @@ const Modal = ({
   runtime,
   number_of_seasons,
 }: any) => {
+  const { dispatchEvent } = useContext(EventContext);
 
   const handleClick = () => {
-    emitter.emit(EVENTS.ModalClose);
+    dispatchEvent(EVENTS.ModalClose, {});
   };
 
   return (

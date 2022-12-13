@@ -5,6 +5,8 @@ import axios from 'axios';
 
 import emitter from './utils/eventEmmiter';
 
+import { EventContext } from './context/eventContext';
+
 import { URL, APISTRING, EVENTS } from './data/constants';
 
 import { Title } from './data/mock';
@@ -49,14 +51,22 @@ const App = () => {
     setLoading(false);
   };
 
-  const showModal = () => {
-    setTitle(undefined);
+  const closeModal = () => setTitle(undefined);
+
+  const dispatchEvent = (eventType: string, { type, id }: Title) => {
+    switch (eventType) {
+    case EVENTS.PosterClick:
+      getTitle({ type, id });
+      break;
+    case EVENTS.ModalClose:
+      closeModal();
+      break;
+    default:
+      break;
+    }
   };
 
   useEffect(() => {
-    emitter.addListener(EVENTS.PosterClick, getTitle);
-    emitter.addListener(EVENTS.ModalClose, showModal);
-
     const fetchData = async () => {
       try {
         const moviesData = await axios.get(moviesUrl);
@@ -90,13 +100,15 @@ const App = () => {
       ) : (
         <>
           <Hero {...getFeaturedMovie()} />
-          <Carousel title='Filmes populares' data={getMovieList()} />
-          <Carousel title='Séries populares' data={series} />
-          <Carousel title='Em breve' data={upcoming} />
+          <EventContext.Provider value={{ dispatchEvent }}>
+            <Carousel title='Filmes populares' data={getMovieList()} />
+            <Carousel title='Séries populares' data={series} />
+            <Carousel title='Em breve' data={upcoming} />
+            {!loading && title && <Modal {...title} />}
+          </EventContext.Provider>
         </>
       )}
       <Footer />
-      {!loading && title && <Modal {...title} />}
     </div>
   );
 };

@@ -1,9 +1,8 @@
-import React from 'react';
-import emitter from '../../utils/eventEmmiter';
+import React, { useContext } from 'react';
 
-import { Movie } from '../../data/mock';
+import { EventContext } from '../../context/eventContext';
 
-import { Title, TitleType } from '../../data/mock';
+import { Movie, TitleType } from '../../data/mock';
 
 import { IMAGEURL, EVENTS } from '../../data/constants';
 
@@ -16,10 +15,12 @@ import './index.css';
 
 const Poster = ({ cover, poster_path, title, name, vote_average, id }: Movie, index: number) => {
 
+  const { dispatchEvent } = useContext(EventContext);
+
   const handleClick = () => {
     const type = title ? TitleType.Movie : TitleType.Serie;
 
-    emitter.emit(EVENTS.PosterClick, { type, id});
+    dispatchEvent(EVENTS.PosterClick, {type, id});
   };
 
   return (
