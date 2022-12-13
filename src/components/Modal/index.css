@@ -1,3 +1,7 @@
+.modal article img {
+  height: 80vh;
+}
+
 .fa-icon {
   position: absolute;
   top: 20px;

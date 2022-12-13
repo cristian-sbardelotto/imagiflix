@@ -49,13 +49,13 @@ const App = () => {
     setLoading(false);
   };
 
-  const titleFalse = () => {
+  const showModal = () => {
     setTitle(undefined);
   };
 
   useEffect(() => {
     emitter.addListener(EVENTS.PosterClick, getTitle);
-    emitter.addListener(EVENTS.ModalClose, titleFalse);
+    emitter.addListener(EVENTS.ModalClose, showModal);
 
     const fetchData = async () => {
       try {

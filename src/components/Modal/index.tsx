@@ -22,21 +22,21 @@ const Modal = ({
   runtime,
   number_of_seasons,
 }: any) => {
-  
+
   const handleClick = () => {
     emitter.emit(EVENTS.ModalClose);
   };
 
   return (
-    <div className='fixed top-0 left-0 z-10 p-12 w-full h-screen grid place-items-center'>
+    <div className='modal fixed top-0 left-0 z-10 p-12 w-full h-screen grid place-items-center'>
       <article className='w-full h-full grid grid-flow-col auto-cols-auto p-8 bg-black shadow-lg opacity-90'>
         <img
           src={`${IMAGEURL}/w500/${poster_path}`}
           alt={title ? title : name}
-          className='h-full w-4/5'
+          className='w-auto'
         />
 
-        <div className='relative'>
+        <div className='relative ml-6'>
           <FontAwesomeIcon
             size='2xl'
             icon={faClose}
