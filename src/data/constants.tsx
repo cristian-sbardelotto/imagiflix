@@ -4,7 +4,8 @@ const APIKEY = '41b09a1ab2389780ca5d1aa46c1fcf95';
 const APISTRING = `?api_key=${APIKEY}&language=pt-BR`;
 const EVENTS = {
   PosterClick: 'PosterClick',
-  ModalClose: 'ModalClose'
+  ModalClose: 'ModalClose',
+  Search: 'Search'
 };
 
 export {

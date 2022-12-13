@@ -26,11 +26,15 @@ const App = () => {
   const [series, setSeries] = useState<any[]>([]);
   const [upcoming, setUpcoming] = useState<any[]>([]);
   const [title, setTitle] = useState<any[]>();
+  const [search, setSearch] = useState<any>();
   const [loading, setLoading] = useState<boolean>(true);
 
   const moviesUrl = `${URL}/discover/movie${APISTRING}&sort_by=popularity.desc`;
   const seriesUrl = `${URL}/discover/tv${APISTRING}&sort_by=popularity.desc`;
   const upcomingUrl = `${URL}/movie/upcoming${APISTRING}&sort_by=popularity.desc`;
+
+  const searchMoviesUrl = `${URL}/search/movie${APISTRING}&query=${search}&sort_by=popularity.desc`;
+  console.log(searchMoviesUrl);
 
   const getFeaturedMovie = () => movies && movies[0];
 
@@ -53,13 +57,24 @@ const App = () => {
     setTitle(undefined);
   };
 
+  const handleSearchInput = (searchInput = '') => {
+    setSearch(searchInput);
+  };
+
   useEffect(() => {
     emitter.addListener(EVENTS.PosterClick, getTitle);
     emitter.addListener(EVENTS.ModalClose, showModal);
+    emitter.addListener(EVENTS.Search, handleSearchInput);
 
     const fetchData = async () => {
       try {
-        const moviesData = await axios.get(moviesUrl);
+        let moviesUrlToUse = moviesUrl;
+
+        if(search) {
+          moviesUrlToUse = searchMoviesUrl;
+        };
+
+        const moviesData = await axios.get(moviesUrlToUse);
         setMovies(moviesData.data.results);
 
         const seriesData = await axios.get(seriesUrl);
@@ -78,7 +93,7 @@ const App = () => {
     };
 
     fetchData();
-  }, [moviesUrl, seriesUrl, upcomingUrl]);
+  }, [moviesUrl, seriesUrl, upcomingUrl, search, searchMoviesUrl]);
 
   useEffect(() => title && console.log(title), [title]);
 
