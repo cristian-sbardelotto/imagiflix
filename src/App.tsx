@@ -14,6 +14,7 @@ import Loading from './components/Loading/index';
 import NavBar from './components/Navbar/index';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
+import Modal from './components/Modal';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -24,10 +25,10 @@ const App = () => {
   const [movies, setMovies] = useState<any[]>([]);
   const [series, setSeries] = useState<any[]>([]);
   const [upcoming, setUpcoming] = useState<any[]>([]);
-  const [title, setTitle] = useState<any[]>([]);
+  const [title, setTitle] = useState<any[]>();
   const [loading, setLoading] = useState<boolean>(true);
 
-  const moviesUrl =  `${URL}/discover/movie${APISTRING}&sort_by=popularity.desc`;
+  const moviesUrl = `${URL}/discover/movie${APISTRING}&sort_by=popularity.desc`;
   const seriesUrl = `${URL}/discover/tv${APISTRING}&sort_by=popularity.desc`;
   const upcomingUrl = `${URL}/movie/upcoming${APISTRING}&sort_by=popularity.desc`;
 
@@ -41,13 +42,20 @@ const App = () => {
     return [];
   };
 
-  const getTitle = async ({type, id}: Title) => {
+  const getTitle = async ({ type, id }: Title) => {
+    setLoading(true);
     const title = await axios.get(`${URL}/${type}/${id}${APISTRING}`);
     setTitle(title.data);
+    setLoading(false);
+  };
+
+  const titleFalse = () => {
+    setTitle(undefined);
   };
 
   useEffect(() => {
     emitter.addListener(EVENTS.PosterClick, getTitle);
+    emitter.addListener(EVENTS.ModalClose, titleFalse);
 
     const fetchData = async () => {
       try {
@@ -72,20 +80,23 @@ const App = () => {
     fetchData();
   }, [moviesUrl, seriesUrl, upcomingUrl]);
 
-  useEffect(() => console.log(title), [title]);
+  useEffect(() => title && console.log(title), [title]);
 
   return (
     <div className='m-auto antialiased font-sans bg-stone-900 text-white bg-red'>
       <NavBar />
-      {loading ? <Loading /> : (
+      {loading ? (
+        <Loading />
+      ) : (
         <>
-          <Hero {...getFeaturedMovie()}/>
-          <Carousel title='Filmes populares' data={getMovieList()}  />
+          <Hero {...getFeaturedMovie()} />
+          <Carousel title='Filmes populares' data={getMovieList()} />
           <Carousel title='Séries populares' data={series} />
           <Carousel title='Em breve' data={upcoming} />
         </>
       )}
       <Footer />
+      {!loading && title && <Modal {...title} />}
     </div>
   );
 };
