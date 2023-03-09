@@ -26,6 +26,7 @@
   },
   "scripts": {
     "tailwind:css": "npx tailwindcss -i ./src/tailwind.css -o ./dist/index.css --watch",
+    "tailwind:build": "npx tailwindcss -i ./src/tailwind.css -o ./dist/index.css",
     "start": "react-scripts start",
     "build": "npm run tailwind:css && react-scripts build",
     "test": "react-scripts test",
