@@ -35,7 +35,7 @@ The project is a clone of Netflix, using the API The Movie DataBase.
 
 <h1 id='layout'>🖥️ Layout</h1>
 
-> To see the Deploy, check [THIS LINK](https:// .com)
+> To see the Deploy, check [THIS LINK](https://imagiflix-drab.vercel.app/#series)
 
 <br />
 
@@ -71,9 +71,17 @@ The project is a clone of Netflix, using the API The Movie DataBase.
 
 ---
 
+<div align='center'>
+
 <h2 align='center'>Enjoy this project!</h2>
+
+<br />
 
 Developed with ❤️ by <strong>Cristian Sbardelotto</strong>
 
+<br />
+
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cristian-k-sbardelotto/)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/cristian-sbardelotto)
+
+</div>
