@@ -1,46 +1,79 @@
-# Getting Started with Create React App
+<h1 align="center"> Imagiflix </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+Project designed and provided by <a href='https://www.linkedin.com/school/imagine-school/mycompany/' target='_blank'>Imagine School</a>.
+<br />
+The project is a clone of Netflix, using the API The Movie DataBase.
+</p>
 
-## Available Scripts
+<p align="center">
+  <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#layout">Layout</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+<p align="center">
+  <img alt="Project preview" src="./.github/preview.jpg" width="100%">
+</p>
+<h1 id='technologies'>🖱️ Technologies</h2>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p>This project was made with the following technologies/libraries:</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ReactJS
+- TypeScript
+- TailwindCSS
+- Font Awesome
+- Slick Carousel
+- FB Emitter
+- Axios
+- The Movie DataBase ( API )
+- Create React App ( Scaffold )
 
-### `npm test`
+<br />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h1 id='layout'>🖥️ Layout</h1>
 
-### `npm run build`
+> To see the Deploy, check [THIS LINK](https:// .com)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h1 id='installation'>📤 Installation</h1>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> <h3>Firstly, you need to <strong>clone the project</strong> on your machine:</h3>
+<br />
 
-### `npm run eject`
+<p align='center'><code>git clone https://github.com/cristian-sbardelotto/imagiflix</code></p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> <h3>After that, open the project folder and <strong>install the dependencies:</strong></h3>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<p align='center'><code>npm i</code></p>
 
-## Learn More
+<p align='center'><code>yarn</code></p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> <h3>To <strong>run the project</strong> on your browser, use:</h3>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align='center'><code>npm run start</code></p>
+<p align='center'><code>yarn start</code></p>
+
+<br/>
+
+> <h3>To <strong>use Tailwind classes</strong> and <strong>create your own style</strong>, use:</h3>
+
+<p align='center'><code>npm run tailwind:css</code></p>
+<p align='center'><code>yarn tailwind:css</code></p>
+
+<br/>
+
+---
+
+<h2 align='center'>Enjoy this project!</h2>
+
+Developed with ❤️ by <strong>Cristian Sbardelotto</strong>
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cristian-k-sbardelotto/)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/cristian-sbardelotto)
