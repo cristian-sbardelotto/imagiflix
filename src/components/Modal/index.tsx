@@ -11,6 +11,18 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 import './index.css';
 
+interface ModalProps {
+  poster_path?: string;
+  title?: string;
+  original_title?: string;
+  name?: string;
+  original_name?: string;
+  overview?: string;
+  vote_average?: string | number;
+  runtime?: string | number;
+  number_of_seasons?: string | number;
+}
+
 const Modal = ({
   poster_path,
   title,
@@ -21,11 +33,9 @@ const Modal = ({
   vote_average,
   runtime,
   number_of_seasons,
-}: any) => {
-  
-  const handleClick = () => {
-    emitter.emit(EVENTS.ModalClose);
-  };
+}: ModalProps) => {
+
+  const handleClick = () => emitter.emit(EVENTS.ModalClose);
 
   return (
     <div className='fixed top-0 left-0 z-10 p-12 w-full h-screen grid place-items-center'>

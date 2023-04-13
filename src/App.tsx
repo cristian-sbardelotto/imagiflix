@@ -80,10 +80,8 @@ const App = () => {
     fetchData();
   }, [moviesUrl, seriesUrl, upcomingUrl]);
 
-  useEffect(() => title && console.log(title), [title]);
-
   return (
-    <div className='m-auto antialiased font-sans bg-stone-900 text-white bg-red'>
+    <div className='m-auto antialiased font-sans bg-stone-900 text-white'>
       <NavBar />
       {loading ? (
         <Loading />
@@ -96,7 +94,7 @@ const App = () => {
         </>
       )}
       <Footer />
-      {!loading && title && <Modal {...title} />}
+      {!loading && title && <Modal key={Math.random()} {...title} />}
     </div>
   );
 };
